@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table { 
+            width: 100%;  
+        } 
+        th, td { 
+            padding: 8px 12px; 
+            border: 1px solid #000000; 
+            text-align: center; 
+            width: 150px;
+            height: 150px;
+        } 
+        th { 
+            background-color: #f2f2f2; 
+        } 
+        .hidden-image { 
+            border: #2c2222;
+            display: none; 
+            width: 150px;
+            height: 150px;
+        }
+        .btn-center {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 20px 0;
+            
+        }
+        .btn-center button { 
+            width: 100px;
+            height: 30px;
+        }
+        .flip { 
+            transition: transform 0.6s; 
+            transform-style: preserve-3d; 
+        } 
+        .flipped { 
+            transform: rotateY(180deg); 
+        }
+    </style>
+    <script>
+        function flipImage(img) { 
+            img.classList.add("flip"); // Usar um pequeno atraso para garantir que a classe 'flip' seja aplicada antes de adicionar 'flipped' 
+            setTimeout(function() { 
+                img.classList.add("flipped"); 
+            }, 10); 
+        } function unflipImage(img) { 
+            img.classList.remove("flipped"); // Remover a classe 'flip' após a animação ser concluída 
+            setTimeout(function() { 
+                img.classList.remove("flip"); 
+            }, 600); // Igual ao valor da transição no CSS 
+        }
+        document.addEventListener("DOMContentLoaded", function() { 
+            var cells = document.querySelectorAll("td"); 
+            cells.forEach(function(cell) { 
+                cell.addEventListener("click", function() { 
+                    var img = cell.querySelector("img"); 
+                    img.style.display = "block"; 
+                    flipImage(img); 
+                }); 
+            }); 
+        });
+    </script>
+    <title>Jogo da memória</title>
+</head>
+<body>
+    <h1>Jogo da Memória Ram</h1>
+    <br/>
+    <div class="btn-center">
+        <button id="btnDica">Dica...</button>
+    </div>
+    <br/><br/>
+    <div>
+        <table>
+            <tr>
+                <td onclick="showImage('img1')"><img id="img1" class="hidden-image" src="media/cafe.jpg" alt="Imagem 1"></td>
+                <td onclick="showImage('img2')"><img id="img2" class="hidden-image" src="media/breakfast.jpg" alt="Imagem 2"></td>
+                <td onclick="showImage('img3')"><img id="img3" class="hidden-image" src="media/menino.jpg" alt="Imagem 3"></td>
+                <td onclick="showImage('img4')"><img id="img4" class="hidden-image" src="media/panda.jpg" alt="Imagem 4"></td>
+            </tr>
+            <tr>
+                <td onclick="showImage('img5')"><img id="img5" class="hidden-image" src="media/menino.jpg" alt="Imagem 5"></td>
+                <td onclick="showImage('img6')"><img id="img6" class="hidden-image" src="media/panda.jpg" alt="Imagem 6"></td>
+                <td onclick="showImage('img7')"><img id="img7" class="hidden-image" src="media/cafe.jpg" alt="Imagem 7"></td>
+                <td onclick="showImage('img8')"><img id="img8" class="hidden-image" src="media/breakfast.jpg" alt="Imagem 8"></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
