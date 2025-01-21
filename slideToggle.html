@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideToggle("slow");
+            })
+        })
+    </script>
+    <style>
+        #panel{
+            padding: 5px;
+            text-align: center;
+            background-color: hsl(239, 73%, 54%);
+            border: solid 1px #c3c3c3;
+        }
+        #flip{
+            padding: 5px;
+            text-align: center;
+            background-color: hsl(0, 52%, 49%);
+            border: solid 1px #c3c3c3;
+        }
+        #panel{
+            padding: 50px;
+            display: none;
+        }
+    </style>
+    <title>Slide Toggle</title>
+</head>
+<body>
+    <h1>Clique para ver a resposta.</h1>
+    <div>
+        <div id="flip">O céu é azul?</div>
+        <div id="panel">Sim.</div>
+    </div>
+    <div>
+        <div id="flip">Qual pesa mais: 1kg de algodão ou 1kg de chumbo?</div>
+        <div id="panel">Os dois pesam iguais. O volume que é diferente.</div>
+    </div>
+    <div>
+        <div id="flip">Drogas?</div>
+        <div id="panel">Não, obrigado!</div>
+    </div>
+    <div>
+        <div id="flip">Qual a cor do cavalo Branco de Napoleão?</div>
+        <div id="panel">Dizem que é cinza, mas não sei.</div>
+    </div>
+    <div>
+        <div id="flip">Clique aqui, meu parceiro!!</div>
+        <div id="panel">Ou quer virar estampa de camisa?! Atividade!!</div>
+    </div>
+</body>
+</html>
